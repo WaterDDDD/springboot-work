@@ -9,12 +9,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
+
 
 @WebServlet("/getProducts")
 public class ProductServlet extends HttpServlet {
+
 
     private ProductDao productDao = new ProductDaoImpl();
 
@@ -30,6 +32,5 @@ public class ProductServlet extends HttpServlet {
         request.setAttribute("keyword", keyword);
         request.getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(request, response);
 
-        Map<String, String[]> parameterMap = request.getParameterMap();
     }
 }
