@@ -28,7 +28,8 @@ public class ProductDaoImpl implements ProductDao {
                 "WHERE product_name LIKE ? OR category LIKE ?";
         String search = "%" + keyword + "%";
 
-        return jdbcTemplate.query(sql, new Object[]{search, search}, new ProductRowMapper());
+        List<Product> productList = jdbcTemplate.query(sql, new Object[]{search, search}, new ProductRowMapper());
 
+        return productList;
     }
 }
